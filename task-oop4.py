@@ -96,7 +96,6 @@ class Reviewer(Mentor):
         return f"Имя: {self.name}\nФамилия: {self.surname}"
 
 
-# Функция для подсчета средней оценки за домашние задания по всем студентам в рамках конкретного курса
 def calculate_avg_hw_grade(students, course):
     total_grades = []
     for student in students:
@@ -106,7 +105,6 @@ def calculate_avg_hw_grade(students, course):
         return 0
     return round(sum(total_grades) / len(total_grades), 1)
 
-# Функция для подсчета средней оценки за лекции всех лекторов в рамках курса
 def calculate_avg_lecture_grade(lecturers, course):
     total_grades = []
     for lecturer in lecturers:
@@ -117,7 +115,6 @@ def calculate_avg_lecture_grade(lecturers, course):
     return round(sum(total_grades) / len(total_grades), 1)
 
 
-# Создаем экземпляры студентов
 student1 = Student("Иван", "Иванов", "мужской")
 student1.courses_in_progress = ["Python", "Git"]
 student1.finished_courses = ["Введение в программирование"]
@@ -128,7 +125,6 @@ student2.courses_in_progress = ["Python", "JavaScript"]
 student2.finished_courses = ["Основы программирования"]
 student2.grades = {"Python": [10, 9, 10], "JavaScript": [8, 9]}
 
-# Создаем экземпляры лекторов
 lecturer1 = Lecturer("Алексей", "Смирнов")
 lecturer1.courses_attached = ["Python", "Git"]
 lecturer1.grades = {"Python": [9, 10, 8], "Git": [8, 9]}
@@ -137,14 +133,12 @@ lecturer2 = Lecturer("Ольга", "Кузнецова")
 lecturer2.courses_attached = ["Python", "JavaScript"]
 lecturer2.grades = {"Python": [10, 9, 10], "JavaScript": [9, 8]}
 
-# Создаем экземпляры проверяющих
 reviewer1 = Reviewer("Дмитрий", "Васильев")
 reviewer1.courses_attached = ["Python", "Git"]
 
 reviewer2 = Reviewer("Елена", "Соколова")
 reviewer2.courses_attached = ["JavaScript", "Python"]
 
-# Вызываем методы rate_hw и rate_lecturer
 reviewer1.rate_hw(student1, "Python", 9)
 reviewer1.rate_hw(student1, "Git", 8)
 reviewer2.rate_hw(student2, "Python", 10)
@@ -155,7 +149,6 @@ student1.rate_lecturer(lecturer1, "Git", 8)
 student2.rate_lecturer(lecturer2, "Python", 10)
 student2.rate_lecturer(lecturer2, "JavaScript", 9)
 
-# Выводим информацию о созданных экземплярах
 print("== Проверяющие ==")
 print(reviewer1)
 print()
@@ -169,7 +162,6 @@ print(student1)
 print()
 print(student2)
 
-# Сравниваем лекторов и студентов
 print("\nСравнение лекторов:")
 print(f"{lecturer1.name} < {lecturer2.name}: {lecturer1 < lecturer2}")
 print(f"{lecturer1.name} == {lecturer2.name}: {lecturer1 == lecturer2}")
@@ -178,7 +170,6 @@ print("\nСравнение студентов:")
 print(f"{student1.name} > {student2.name}: {student1 > student2}")
 print(f"{student1.name} == {student2.name}: {student1 == student2}")
 
-# Вызываем функции для подсчета средних оценок
 students_list = [student1, student2]
 lecturers_list = [lecturer1, lecturer2]
 
